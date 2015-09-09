@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://abargnesi@github.com/abargnesi/ncbi-eutils.git"
+    "url": "git+https://abargnesi@github.com/abargnesi/ncbi-eutils-libxmljs.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/linjoey/ncbi-eutils/issues"
+    "url": "https://github.com/abargnesi/ncbi-eutils-libxmljs/issues"
   },
-  "homepage": "https://github.com/linjoey/ncbi-eutils#readme",
+  "homepage": "https://github.com/abargnesi/ncbi-eutils-libxmljs#readme",
   "devDependencies": {
     "browserify": "^11.0.0",
     "gulp": "^3.9.0",

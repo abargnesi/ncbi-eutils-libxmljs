@@ -9730,23 +9730,23 @@ module.exports = isArray;
 
 },{}],62:[function(require,module,exports){
 module.exports={
-  "name": "ncbi-eutils",
+  "name": "ncbi-eutils-libxmljs",
   "version": "0.2.2",
-  "description": "NCBI E-utilities API for JavaScript (Node + Browser)",
+  "description": "Fork of ncbi-eutils using libxmljs for Node JS.",
   "main": "src/index.js",
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://linjoey@github.com/linjoey/ncbi-eutils.git"
+    "url": "git+https://abargnesi@github.com/abargnesi/ncbi-eutils-libxmljs.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/linjoey/ncbi-eutils/issues"
+    "url": "https://github.com/abargnesi/ncbi-eutils-libxmljs/issues"
   },
-  "homepage": "https://github.com/linjoey/ncbi-eutils#readme",
+  "homepage": "https://github.com/abargnesi/ncbi-eutils-libxmljs#readme",
   "devDependencies": {
     "browserify": "^11.0.0",
     "gulp": "^3.9.0",
@@ -9832,7 +9832,14 @@ exports.esearch = function esearch(userOptions) {
 function makeRequest(requestURL) {
   return request(requestURL).then(function(res) {
     return new Promise(function(resolve, reject) {
-      return libxmljs.parseXml(res);
+
+      try {
+        var responseXml = libxmljs.parseXml(res);
+        resolve(responseXml);
+      }
+      catch (e) {
+        reject(e);
+      }
     });
   });
 }
