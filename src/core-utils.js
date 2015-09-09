@@ -1,7 +1,7 @@
 
 var request = require('./request.js')
   , Term = require('./term.js')
-  , xml2js = require('xml2js').parseString
+  , libxmljs = require('libxmljs')
   , assign = require('lodash.assign')
   , EUTILS_BASE = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
 
@@ -64,13 +64,14 @@ exports.esearch = function esearch(userOptions) {
 function makeRequest(requestURL) {
   return request(requestURL).then(function(res) {
     return new Promise(function(resolve, reject) {
-      xml2js(res, {explicitArray:false}, function(err, result) {
-        if (!err) {
-          resolve(result);
-        } else {
-          reject(err);
-        }
-      });
+
+      try {
+        var responseXml = libxmljs.parseXml(res);
+        resolve(responseXml);
+      }
+      catch (e) {
+        reject(e);
+      }
     });
   });
 }

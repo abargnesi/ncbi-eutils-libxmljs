@@ -1,14 +1,14 @@
 {
-  "name": "ncbi-eutils",
+  "name": "ncbi-eutils-libxmljs",
   "version": "0.2.2",
-  "description": "NCBI E-utilities API for JavaScript (Node + Browser)",
+  "description": "Fork of ncbi-eutils using libxmljs for Node JS.",
   "main": "src/index.js",
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://linjoey@github.com/linjoey/ncbi-eutils.git"
+    "url": "git+https://abargnesi@github.com/abargnesi/ncbi-eutils.git"
   },
   "author": "",
   "license": "MIT",
@@ -30,6 +30,6 @@
     "es6-promise": "^2.3.0",
     "lodash.assign": "^3.2.0",
     "request": "^2.60.0",
-    "xml2js": "^0.4.9"
+    "libxmljs": "^0.14.0"
   }
 }
