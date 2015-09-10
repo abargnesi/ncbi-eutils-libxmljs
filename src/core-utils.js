@@ -1,7 +1,7 @@
 
 var request = require('./request.js')
   , Term = require('./term.js')
-  , libxmljs = require('libxmljs')
+  , XML = require('pixl-xml')
   , assign = require('lodash.assign')
   , EUTILS_BASE = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
 
@@ -66,8 +66,10 @@ function makeRequest(requestURL) {
     return new Promise(function(resolve, reject) {
 
       try {
-        var responseXml = libxmljs.parseXml(res);
-        resolve(responseXml);
+        var doc = XML.parse(res, {
+          preserveAttributes: true
+	});
+        resolve(doc);
       }
       catch (e) {
         reject(e);
